@@ -1,0 +1,19 @@
+int year, month, hours;
+	
+	year = 1919;
+	bool test1 = leap_year(year) == 28;
+	year = 2000;
+	bool test2 = leap_year(year) == 29;
+
+	year = 1950; month = 1;
+	bool test3 = weekday(year, month) == 6;
+	year = 2000; month = 5;
+	bool test4 = weekday(year, month) == 0;
+
+	bool right = (test1 && test2 && test3 && test4);
+	if (right == 0) {
+		cout << "Tests failed!" << endl;
+		return 1;
+	} 
+	cout << "Year:" << endl;
+	cin >> year;

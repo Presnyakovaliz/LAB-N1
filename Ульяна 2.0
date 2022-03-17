@@ -1,0 +1,24 @@
+int month_days[12] = { 31, leap_year(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	cout << "Calender:" << endl;
+	cout << "  Mon  Tue   Wed  Thu  Fri  Sat Sun" << endl;
+	// i - день недели от 0 до 6; j - дни в месяце (от 1 до общего в месяце)
+	
+	int i; int num_weeks = 0; 
+
+	for (i = 0; i < weekday(year, month); i++)
+		cout << "     ";
+
+	for (int j = 1; j <= month_days[month - 1]; j++) {
+		i++;
+		cout << setw(5) << j;
+
+		if (i > 6)
+			{
+				i = 0;
+				cout << endl;
+				num_weeks++;
+			}
+		}
+
+	if (i)
+	cout << endl;

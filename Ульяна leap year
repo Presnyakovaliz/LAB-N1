@@ -1,0 +1,27 @@
+// Год - високосный?
+int leap_year(int year) {
+	int feb_days;
+	if ((((year % 4) == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+		feb_days = 29;
+	}
+	else {
+		feb_days = 28;
+	}
+	return feb_days;
+};
+
+
+// с какого дня недели начинаем
+int weekday(int year, int month) {
+	if (month <= 2) {
+		month += 12;
+		year--;
+	}
+	int century = year / 100;
+	year = year % 100;
+	int day = (year + year / 4 + century / 4 - 2 * century + 26 * (month + 1) / 10 - 1) % 7;
+	while (day < 0) {
+		day = day + 7;
+	}
+	return day;
+};
